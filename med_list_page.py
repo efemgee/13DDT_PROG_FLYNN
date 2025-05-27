@@ -1,14 +1,14 @@
 from tkinter import *
 from tkinter import ttk
 
+
 root = Tk()
 
 root.title("CapsU")
-root.geometry("370x630")
-root.configure(bg = "#17139C")
+root.geometry("400x600")
 
-master_frame = ttk.Frame(root)
-master_frame.grid(row = 0, column = 0, sticky = "news")
+master_frame = Frame(root)
+master_frame.pack(fill = "x", expand = "True")
 
 
 
