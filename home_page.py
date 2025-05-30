@@ -10,7 +10,7 @@ root.geometry("400x600")
 master_frame = Frame(root)
 master_frame.pack(fill = "x", expand = "True")
 
-app_name_header = Label(master_frame, text = "CapsU", font = ("Arial", "50"), pady = "20")
+app_name_header = Label(master_frame, text = "CapsU", font = ("Arial", "50"), pady = "15")
 app_name_header.pack(side = "top")
 
 home_page_toolbar = Frame(master_frame)
@@ -44,7 +44,7 @@ schedule_body = Frame(schedule_frame)
 schedule_body.pack(side = "top")
 
 update_items = LabelFrame(schedule_body, text = "Updates")
-update_items.pack(side = "top", fill = "x", padx = "40")
+update_items.pack(side = "top", fill = "x", padx = "5")
 
 update1 = Frame(update_items)
 update1.pack(side = "top", fill = "x", pady = "30")
@@ -65,7 +65,7 @@ update2_content = Label(update1, text = "- Your ADDERALL prescription can now be
 update2_content.pack(side = "top", anchor = "w")
 
 schedule_timeslots = LabelFrame(schedule_body, text = "Schedule")
-schedule_timeslots.pack(side = "top", fill = "x", padx = "40")
+schedule_timeslots.pack(side = "top", fill = "x", padx = "5")
 
 timeslot1 = Frame(schedule_timeslots)
 timeslot1.pack(side = "top", fill = "x", pady = "30")
