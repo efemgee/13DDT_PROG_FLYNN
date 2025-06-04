@@ -11,7 +11,7 @@ root.geometry("400x600")
 master_frame = ctk.CTkFrame(root)
 master_frame.pack(fill = "x", expand = "True")
 
-app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", "50"), pady = "15")
+app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", 50), pady = "15")
 app_name_header.pack(side = "top")
 
 home_page_toolbar = ctk.CTkFrame(master_frame)
@@ -38,7 +38,7 @@ schedule_header.pack(side = "top")
 schedule_header_title = Label(schedule_header, text = "Today", font = ("Arial", "20"))
 schedule_header_title.pack(side = "left", anchor = "w")
 
-schedule_header_calendar_button = ctk.CTkutton(schedule_header, text = "Today on the Calendar")
+schedule_header_calendar_button = ctk.CTkButton(schedule_header, text = "Today on the Calendar")
 schedule_header_calendar_button.pack(side = "left", padx = ("150", "0"))
 
 schedule_body = ctk.CTkFrame(schedule_frame)
