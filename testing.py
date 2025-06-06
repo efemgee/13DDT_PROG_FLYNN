@@ -13,7 +13,7 @@ def info_box(parent_frame, title = str, content = str):
     box_title_content_division = ctk.CTkFrame(box)
     box_title_content_division.pack(side = "top", anchor = "w", padx = "5", pady = "5", fill = "x")
     box_content = ctk.CTkLabel(box_title_content_division, text = content)
-    box_content.pack(side = "top", anchor = "w", padx = "5")
+    box_content.pack(side = "top", anchor = "w", padx = "10")
 
 
 
