@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import customtkinter as ctk
+import functions as func
 
 
 root = ctk.CTk()
@@ -44,23 +45,9 @@ current_timeslot_content.pack(side = "top", anchor = "w")
 update_items = LabelFrame(notifications_body, text = "Updates")
 update_items.pack(side = "top", fill = "x", padx = "5")
 
-update1 = ctk.CTkFrame(update_items)
-update1.pack(side = "top", fill = "x", pady = "15")
+func.info_box(update_items, "Prescription", "- Your ISOTRETINOIN prescription can now be renewed.")
 
-update1_title = ctk.CTkLabel(update1, text = "Prescription")
-update1_title.pack(side = "top", anchor = "w")
-
-update1_content = ctk.CTkLabel(update1, text = "- Your ISOTRETINOIN prescription can now be renewed.")
-update1_content.pack(side = "top", anchor = "w")
-
-update2 = ctk.CTkFrame(update_items)
-update2.pack(side = "top", fill = "x", pady = "15")
-
-update2_title = ctk.CTkLabel(update1, text = "Prescription")
-update2_title.pack(side = "top", anchor = "w")
-
-update2_content = ctk.CTkLabel(update1, text = "- Your ADDERALL prescription can now be renewed.")
-update2_content.pack(side = "top", anchor = "w")
+func.info_box(update_items, "Prescription", "- Your ADDERALL prescription can now be renewed.")
 
 
 #FOOTER
