@@ -17,4 +17,16 @@ def info_box(parent_frame, title = str, content = str):
 
 def footer_button(parent_frame, title = str):
     button = ctk.CTkButton(parent_frame, text = title, width = 50)
-    button.pack(side = "left")
+    button.pack(side = "left", padx = 3)
+
+def footer(parent_frame):
+    footer_frame = ctk.CTkFrame(parent_frame)
+    footer_frame.pack(side = "bottom", pady = (20, 0))
+
+    footer_button(footer_frame, "Home")
+
+    footer_button(footer_frame, "Calendar")
+
+    footer_button(footer_frame, "Medications")
+
+    footer_button(footer_frame, "Notifications")

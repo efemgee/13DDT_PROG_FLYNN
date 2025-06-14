@@ -29,8 +29,11 @@ notifications_body = ctk.CTkFrame(notifications_frame)
 notifications_body.pack(side = "top")
 
 #CURRENT MEDICATION TIMESLOT
-current_timeslot_frame = LabelFrame(notifications_body, text = "Current Medication(s)")
+current_timeslot_frame = ctk.CTkFrame(notifications_body)
 current_timeslot_frame.pack(side = "top", fill = "x", padx = "5")
+
+current_timeslot_title = ctk.CTkLabel(current_timeslot_frame, text = "Current Medication(s)")
+current_timeslot_title.pack(side = "top", fill = "x", padx = "5", anchor = "w")
 
 current_timeslot = ctk.CTkFrame(current_timeslot_frame)
 current_timeslot.pack(side = "top", fill = "x", pady = "30")
@@ -51,19 +54,6 @@ func.info_box(update_items, "Prescription", "- Your ADDERALL prescription can no
 
 
 #FOOTER
-footer_frame = ctk.CTkFrame(master_frame)
-footer_frame.pack(side = "bottom", pady = (20, 0))
-
-home_button = ctk.CTkButton(footer_frame, text = "Home")
-home_button.pack(side = "left")
-
-calendar_button = ctk.CTkButton(footer_frame, text = "Calendar")
-calendar_button.pack(side = "left")
-
-medications_button = ctk.CTkButton(footer_frame, text = "Medications")
-medications_button.pack(side = "left")
-
-notifications_button = ctk.CTkButton(footer_frame, text = "Notifications")
-notifications_button.pack(side = "left")
+func.footer(master_frame)
 
 root.mainloop()

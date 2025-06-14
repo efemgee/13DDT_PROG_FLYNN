@@ -18,16 +18,26 @@ import functions as func
 
 
 
+
+#Testing running functions within GUI
 root = ctk.CTk()
 
 root.title("CapsU")
 root.geometry("400x600")
+#root.iconbitmap("image.ico")
+
+
+mood_dropdown = ctk.CTkComboBox(root, values = ["ok", "happy", "okay", "sad", "angry"])
+mood_dropdown.pack()
+
+
 
 master_frame = ctk.CTkFrame(root)
 master_frame.pack(fill = "x", expand = "True")
 
+#info box
 func.info_box(master_frame, "Prescription", "- Your ISORETINOIN prescription is ready to be renewed.")
 
-func.footer_button(master_frame, "Home")
+func.footer(master_frame)
 
 root.mainloop()

@@ -79,19 +79,6 @@ timeslot1_content = ctk.CTkLabel(timeslot1, text = "- 2 x ISOTRETINOIN. Take wit
 timeslot1_content.pack(side = "top", anchor = "w")
 
 
-footer_frame = ctk.CTkFrame(master_frame)
-footer_frame.pack(side = "bottom", pady = ("20", "0"))
-
-home_button = ctk.CTkButton(footer_frame, text = "Home")
-home_button.pack(side = "left")
-
-calendar_button = ctk.CTkButton(footer_frame, text = "Calendar")
-calendar_button.pack(side = "left")
-
-medications_button = ctk.CTkButton(footer_frame, text = "Medications")
-medications_button.pack(side = "left")
-
-notifications_button = ctk.CTkButton(footer_frame, text = "Notifications")
-notifications_button.pack(side = "left")
+func.footer(master_frame)
 
 root.mainloop()
