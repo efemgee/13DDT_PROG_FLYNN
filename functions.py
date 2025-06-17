@@ -3,6 +3,23 @@ from tkinter import ttk
 import customtkinter as ctk
 
 
+
+#Function to create an approximate Tkinter LabelFrame in CTkinter.
+
+#MAKE FUNCTIONALITY SO THAT THIS FRAME CAN READ FROM A DATABASE THE LIST OF INFOBOXES THAT IT NEEDS TO DISPLAY WITHIN ITSELF. CURRENTLY IDK HOW TO PACK OTHER THINGS INTO THE FRAME WITHIN THIS FUNCTION.
+def custom_label_frame(parent_frame, title = str):
+    overall_frame = ctk.CTkFrame(parent_frame)
+    overall_frame.pack(side = "top", fill = "x", padx = "5")
+
+    overall_frame_label = ctk.CTkLabel(overall_frame, text = title)
+    overall_frame_label.pack(side = "top", padx = "5", anchor = "w")
+    
+    body_frame = ctk.CTkFrame(overall_frame)
+    body_frame.pack(side = "top", fill = "x", padx = "5")
+    
+    info_box(body_frame, "time to", "get a watch")
+
+
 #Function to create a box of information that can be used many times throughout the program for notifications, schedules, and medication lists
 def info_box(parent_frame, title = str, content = str):
     box = ctk.CTkFrame(parent_frame)

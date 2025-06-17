@@ -30,7 +30,7 @@ root.geometry("400x600")
 mood_dropdown = ctk.CTkComboBox(root, values = ["ok", "happy", "okay", "sad", "angry"])
 mood_dropdown.pack()
 
-
+func.custom_label_frame(root, "game time")
 
 master_frame = ctk.CTkFrame(root)
 master_frame.pack(fill = "x", expand = "True")
