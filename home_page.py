@@ -45,38 +45,22 @@ schedule_header_calendar_button.pack(side = "left", padx = "10")
 schedule_body = ctk.CTkFrame(schedule_frame)
 schedule_body.pack(side = "top")
 
-update_items = LabelFrame(schedule_body, text = "Updates")
-update_items.pack(side = "top", fill = "x", padx = "5")
+update_items_frame = ctk.CTkFrame(schedule_body)
+update_items_frame.pack(side = "top", fill = "x", padx = "5")
 
-update1 = ctk.CTkFrame(update_items)
-update1.pack(side = "top", fill = "x", pady = "30")
+update_items_title = ctk.CTkLabel(update_items_frame, text = "Updates")
+update_items_title.pack(side = "top", padx = "5", anchor = "w")
 
-update1_title = ctk.CTkLabel(update1, text = "Prescription")
-update1_title.pack(side = "top", anchor = "w")
+func.info_box(update_items_frame, "Prescription", "- Your ISOTRETINOIN prescription can now be renewed.")
 
-update1_content = ctk.CTkLabel(update1, text = "- Your ISOTRETINOIN prescription can now be renewed.")
-update1_content.pack(side = "top", anchor = "w")
+func.info_box(update_items_frame, "Prescription", "- Your ADDERALL prescription can now be renewed.")
 
-update2 = ctk.CTkFrame(update_items)
-update2.pack(side = "top", fill = "x", pady = "30")
 
-update2_title = ctk.CTkLabel(update1, text = "Prescription")
-update2_title.pack(side = "top", anchor = "w")
-
-update2_content = ctk.CTkLabel(update1, text = "- Your ADDERALL prescription can now be renewed.")
-update2_content.pack(side = "top", anchor = "w")
-
+#UPDATE THIS WITH MANUAL TITLE AND FRAME!!!!!!!!
 schedule_timeslots = LabelFrame(schedule_body, text = "Schedule")
 schedule_timeslots.pack(side = "top", fill = "x", padx = "5")
 
-timeslot1 = ctk.CTkFrame(schedule_timeslots)
-timeslot1.pack(side = "top", fill = "x", pady = "30")
-
-timeslot1_title = ctk.CTkLabel(timeslot1, text = "9:30am")
-timeslot1_title.pack(side = "top", anchor = "w")
-
-timeslot1_content = ctk.CTkLabel(timeslot1, text = "- 2 x ISOTRETINOIN. Take with food and water.")
-timeslot1_content.pack(side = "top", anchor = "w")
+func.info_box(schedule_timeslots_frame, "9:30 am", "- 2 x ISOTRETINOIN. Take with food and water.")
 
 
 func.footer(master_frame)
