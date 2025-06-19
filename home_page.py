@@ -16,7 +16,7 @@ app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", 50
 app_name_header.pack(side = "top")
 
 home_page_toolbar = ctk.CTkFrame(master_frame)
-home_page_toolbar.pack(side = "top", fill = "x", padx = "30")
+home_page_toolbar.pack(side = "top", fill = "x", padx = "10")
 
 clock = ctk.CTkLabel(home_page_toolbar, text = "9:30pm")
 clock.pack(side = "left")
@@ -57,8 +57,11 @@ func.info_box(update_items_frame, "Prescription", "- Your ADDERALL prescription 
 
 
 #UPDATE THIS WITH MANUAL TITLE AND FRAME!!!!!!!!
-schedule_timeslots = LabelFrame(schedule_body, text = "Schedule")
-schedule_timeslots.pack(side = "top", fill = "x", padx = "5")
+schedule_timeslots_frame = ctk.CTkFrame(schedule_body)
+schedule_timeslots_frame.pack(side = "top", fill = "x", padx = "5")
+
+schedule_timeslots_title = ctk.CTkLabel(schedule_timeslots_frame, text = "Schedule")
+schedule_timeslots_title.pack(side = "top", padx = "5", anchor = "w")
 
 func.info_box(schedule_timeslots_frame, "9:30 am", "- 2 x ISOTRETINOIN. Take with food and water.")
 
