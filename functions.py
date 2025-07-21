@@ -31,7 +31,8 @@ def info_box(parent_frame, title = str, content = str):
     box_title.pack(side = "top", anchor = "w", padx = "15", pady = "5")
     box_title_content_division = ctk.CTkFrame(box)
     box_title_content_division.pack(side = "top", anchor = "w", padx = "5", pady = "5", fill = "x")
-    box_content = ctk.CTkLabel(box_title_content_division, text = content)
+    box_content = ctk.CTkTextbox(box_title_content_division, height = 60, width = 350, wrap = "word")
+    box_content.insert("0.0", content)
     box_content.pack(side = "top", anchor = "w", padx = "10")
 
 def footer_button(parent_frame, title = str):

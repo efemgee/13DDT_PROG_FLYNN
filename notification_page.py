@@ -46,7 +46,7 @@ update_items_title.pack(side = "top", padx = "5", anchor = "w")
 
 func.info_box(update_items_frame, "Prescription", "- Your ISOTRETINOIN prescription can now be renewed.")
 
-func.info_box(update_items_frame, "Prescription", "- Your ADDERALL prescription can now be renewed.")
+func.info_box(update_items_frame, "Prescription", "- Your ADDERALL prescription can now be renewedhhhhhhhhhhhhhhhhhh.")
 
 
 #FOOTER
