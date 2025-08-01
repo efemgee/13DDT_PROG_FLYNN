@@ -48,7 +48,7 @@ def home_page():
     schedule_header_calendar_button = ctk.CTkButton(schedule_header, text = "Today on the Calendar")
     schedule_header_calendar_button.pack(side = "left", padx = "10", pady = "5")
 
-    schedule_body = ctk.CTkFrame(schedule_frame)
+    schedule_body = ctk.CTkScrollableFrame(schedule_frame, width = 400, height = 350)
     schedule_body.pack(side = "top", pady = "5")
 
     update_items_frame = ctk.CTkFrame(schedule_body)
@@ -57,7 +57,7 @@ def home_page():
     update_items_title = ctk.CTkLabel(update_items_frame, text = "Updates")
     update_items_title.pack(side = "top", padx = "5", anchor = "w")
 
-    update_items_content_frame = ctk.CTkScrollableFrame(update_items_frame, width = 400)
+    update_items_content_frame = ctk.CTkScrollableFrame(update_items_frame, width = 400, height = 20)
     update_items_content_frame.pack(side = "top")
 
     func.info_box(update_items_content_frame, "Prescription", "- Your ISOTRETINOIN prescription can now be renewed.")
@@ -72,7 +72,7 @@ def home_page():
     schedule_timeslots_title = ctk.CTkLabel(schedule_timeslots_frame, text = "Schedule")
     schedule_timeslots_title.pack(side = "top", padx = "5", anchor = "w")
 
-    schedule_timeslots_content_frame = ctk.CTkScrollableFrame(schedule_timeslots_frame, width = 400)
+    schedule_timeslots_content_frame = ctk.CTkScrollableFrame(schedule_timeslots_frame, width = 400, height = 50)
     schedule_timeslots_content_frame.pack(side = "top")
 
     func.info_box(schedule_timeslots_content_frame, "9:30 am", "- 2 x ISOTRETINOIN. Take with food and water.")

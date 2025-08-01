@@ -50,3 +50,13 @@ def footer(parent_frame):
     footer_button(footer_frame, "Medications")
 
     footer_button(footer_frame, "Notifications")
+    
+    
+def input_box(parent, title, placeholder):
+    input_box_frame = ctk.CTkFrame(parent)
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.label = ctk.CTkLabel(input_box_frame, text=title)
+    input_box_title.pack(side = "top")
+    input_field = ctk.entry = ctk.CTkEntry(input_box_frame, placeholder_text=placeholder, width=140, height=20)
+    input_field.pack(side = "top")
+    
