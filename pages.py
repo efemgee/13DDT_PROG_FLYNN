@@ -45,9 +45,6 @@ def home_page():
     schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Arial", 20))
     schedule_header_title.pack(side = "left", anchor = "w")
 
-    schedule_header_calendar_button = ctk.CTkButton(schedule_header, text = "Today on the Calendar")
-    schedule_header_calendar_button.pack(side = "left", padx = "10", pady = "5")
-
     schedule_body = ctk.CTkScrollableFrame(schedule_frame, width = 400, height = 350)
     schedule_body.pack(side = "top", pady = "5")
 
