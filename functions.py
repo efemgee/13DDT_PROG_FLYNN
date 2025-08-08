@@ -22,7 +22,7 @@ def custom_label_frame(parent_frame, title = str):
     info_box(body_frame, "time to", "get a watch")
 
 
-#Function to create a box of information that can be used many times throughout the program for notifications, schedules, and medication lists
+#Creates a box of information that can be used for items in a list
 def info_box(parent_frame, title = str, content = str):
     box = ctk.CTkFrame(parent_frame)
     box.pack(side = "top", fill = "x", pady = "10", padx = "10")
@@ -35,17 +35,15 @@ def info_box(parent_frame, title = str, content = str):
     box_content.insert("0.0", content)
     box_content.pack(side = "top", anchor = "w")
 
+#Function to maintain a consistent style between all footer buttons
 def footer_button(parent_frame, command_function, title = str):
     button = ctk.CTkButton(parent_frame, text = title, command = command_function, width = 50)
     button.pack(side = "left", padx = 3)
 
+
 def footer(parent_frame):
     footer_frame = ctk.CTkFrame(parent_frame)
     footer_frame.pack(side = "bottom", pady = (20, 0))
-
-    #footer_button(footer_frame, "Home")
-
-    #footer_button(footer_frame, "Calendar")
 
     footer_button(footer_frame, pages.med_list_page, "Medications")
 
