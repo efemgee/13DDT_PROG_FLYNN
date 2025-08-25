@@ -4,9 +4,8 @@ import customtkinter as ctk
 import pages
 
 
-#Function to create an approximate Tkinter LabelFrame in CTkinter.
+#Function to create an approximate Tkinter LabelFrame in CTkinter. Unsuccessful.
 
-# #MAKE FUNCTIONALITY SO THAT THIS FRAME CAN READ FROM A DATABASE THE LIST OF INFOBOXES THAT IT NEEDS TO DISPLAY WITHIN ITSELF. CURRENTLY IDK HOW TO PACK OTHER THINGS INTO THE FRAME WITHIN THIS FUNCTION.
 # def custom_label_frame(parent_frame, title = str):
 
 #     #Frame containing everything

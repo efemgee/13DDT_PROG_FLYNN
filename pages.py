@@ -8,6 +8,7 @@ import functions as func
 def home_page():
     root = ctk.CTk()
 
+    #Defining the window's properties
     root.title("CapsU")
     root.geometry("400x600")
     root.minsize(400, 600)
@@ -16,6 +17,7 @@ def home_page():
     master_frame = ctk.CTkFrame(root)
     master_frame.pack(fill = "x", expand = "True")
 
+    #The title header for the home page
     app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", 50), pady = "5")
     app_name_header.pack(side = "top")
 
