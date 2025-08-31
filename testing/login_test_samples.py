@@ -12,13 +12,23 @@ CREATE TABLE IF NOT EXISTS userdata (
 )
 """)
 
-username1, password1 = "frankinside", hashlib.sha256("bolts".encode()).hexdigest()
-username2, password2 = "orpo", hashlib.sha256("poor".encode()).hexdigest()
-username3, password3 = "plaktuk", hashlib.sha256("kultklap".encode()).hexdigest()
-username4, password4 = "pikpluk", hashlib.sha256("toothpik".encode()).hexdigest()
-cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username1, password1))
-cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username2, password2))
-cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username3, password3))
-cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username4, password4))
+
+def new_user(username = str, password = str):
+    username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
+    cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
+
+# username1, password1 = "frankinside", hashlib.sha256("bolts".encode()).hexdigest()
+# username2, password2 = "orpo", hashlib.sha256("poor".encode()).hexdigest()
+# username3, password3 = "plaktuk", hashlib.sha256("kultklap".encode()).hexdigest()
+# username4, password4 = "pikpluk", hashlib.sha256("toothpik".encode()).hexdigest()
+# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username1, password1))
+# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username2, password2))
+# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username3, password3))
+# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username4, password4))
+
+new_user("frankinside", "bolts")
+new_user("orpo", "poor")
+new_user("plaktuk", "kultklap")
+new_user("pikpluk", "toothpik")
 
 conn.commit()

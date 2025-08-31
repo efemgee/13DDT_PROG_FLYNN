@@ -31,9 +31,11 @@ def info_box(parent_frame, title = str, content = str):
         title (string, optional): The text that will be displayed as the title of the box. Defaults to str.
         content (string, optional): The text that is held within the box. Defaults to str.
     """
+    #Creating the box
     box = ctk.CTkFrame(parent_frame)
     box.pack(side = "top", fill = "x", pady = "10", padx = "10")
 
+    #Creating the box content
     box_title = ctk.CTkLabel(box, text = title, font = ("Arial", 16))
     box_title.pack(side = "top", anchor = "w", padx = "15", pady = "5")
     box_title_content_division = ctk.CTkFrame(box)
