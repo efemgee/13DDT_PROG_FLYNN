@@ -25,6 +25,20 @@ def new_user(username = str, password = str):
             time VARCHAR(255) NOT NULL
             )
             """)
+    
+#puts the program into a state of being logged into one profile
+#def login_to_user():
+
+    
+#Retrieves prescription table of current user
+def retrieve_prescriptions(current_user = str):
+    current_prescriptions = cur.execute(f"""SELECT * FROM {current_user} WHERE id >= 0""")
+    print(current_prescriptions)
+    rows = cur.fetchall()
+    
+    for row in rows:
+        print(row)
+        
 
 # username1, password1 = "frankinside", hashlib.sha256("bolts".encode()).hexdigest()
 # username2, password2 = "orpo", hashlib.sha256("poor".encode()).hexdigest()
@@ -40,8 +54,8 @@ new_user("orpo", "poor")
 new_user("plaktuk", "kultklap")
 new_user("pikpluk", "toothpik")
 
-conn.commit()
+current_user = "frankinside"
 
-#can i make table names dynamically? iterating over numbers or something
-#can i just encode the password again and check if its the same as the one in the database or is it more complicated than that?
-#
+retrieve_prescriptions(current_user)
+
+conn.commit()
