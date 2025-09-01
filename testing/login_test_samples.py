@@ -26,8 +26,14 @@ def new_user(username = str, password = str):
             )
             """)
     
+    
+#checks the username and passcode against the database
+#def check_login_details:
+    #take the values input into the entryboxes once the submit button has been pressed, then encode them. see if these encoded versions match the encoded versions already in the database. if they do, run login_to_user().
+
 #puts the program into a state of being logged into one profile
 #def login_to_user():
+    #if the passcode and username used to attempt a login have matched the database, then this function will be used to open the home page in a state where the profile that was successfully logged into is the current user.
 
     
 #Retrieves prescription table of current user
