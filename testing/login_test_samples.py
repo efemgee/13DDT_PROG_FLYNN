@@ -16,16 +16,15 @@ CREATE TABLE IF NOT EXISTS logindata (
 def new_user(username = str, password = str):
     username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
     cur.execute("INSERT INTO logindata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
-    new_user_id = cur.execute("""
-    SELECT id FROM logindata""")
-    cur.execute("""
-    CREATE TABLE IF NOT EXISTS AUTOINCREMENT_prescriptions (
-        id INTEGER PRIMARY KEY,
-        name VARCHAR(255) NOT NULL,
-        dose INTEGER NOT NULL,
-        time VARCHAR(255) NOT NULL
-    )
-    """)
+
+    cur.execute(f"""
+        CREATE TABLE IF NOT EXISTS {username} (
+            id INTEGER PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            dose INTEGER NOT NULL,
+            time VARCHAR(255) NOT NULL
+            )
+            """)
 
 # username1, password1 = "frankinside", hashlib.sha256("bolts".encode()).hexdigest()
 # username2, password2 = "orpo", hashlib.sha256("poor".encode()).hexdigest()
@@ -42,3 +41,7 @@ new_user("plaktuk", "kultklap")
 new_user("pikpluk", "toothpik")
 
 conn.commit()
+
+#can i make table names dynamically? iterating over numbers or something
+#can i just encode the password again and check if its the same as the one in the database or is it more complicated than that?
+#
