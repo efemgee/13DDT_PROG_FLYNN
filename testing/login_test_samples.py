@@ -1,5 +1,16 @@
+#database stuff
 import sqlite3
 import hashlib
+
+#gui stuff
+from tkinter import *
+from tkinter import ttk
+import customtkinter as ctk
+
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("/theme.json")
+
+
 
 conn = sqlite3.connect("userdata.db")
 cur = conn.cursor()

@@ -3,7 +3,8 @@ from tkinter import ttk
 import customtkinter as ctk
 import functions as func
 
-
+ctk.set_appearance_mode("dark")
+ctk.set_default_color_theme("custom_theme.json")
 
 def home_page():
     root = ctk.CTk()
@@ -18,7 +19,7 @@ def home_page():
     master_frame.pack(fill = "x", expand = "True")
 
     #The title header for the home page
-    app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", 50), pady = "5")
+    app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Hammersmith One", 50), pady = "5")
     app_name_header.pack(side = "top")
 
     home_page_toolbar_frame = ctk.CTkFrame(master_frame)
@@ -44,26 +45,12 @@ def home_page():
     schedule_header = ctk.CTkFrame(schedule_frame)
     schedule_header.pack(side = "top", pady = "5")
 
-    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Arial", 20))
+    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Hammersmith One", 20))
     schedule_header_title.pack(side = "left", anchor = "w")
 
     schedule_body = ctk.CTkScrollableFrame(schedule_frame, width = 400, height = 350)
     schedule_body.pack(side = "top", pady = "5")
-
-    update_items_frame = ctk.CTkFrame(schedule_body)
-    update_items_frame.pack(side = "top", fill = "x", padx = "10", pady = "10")
-
-    update_items_title = ctk.CTkLabel(update_items_frame, text = "Updates")
-    update_items_title.pack(side = "top", padx = "5", anchor = "w")
-
-    update_items_content_frame = ctk.CTkScrollableFrame(update_items_frame, width = 400, height = 20)
-    update_items_content_frame.pack(side = "top")
-
-    func.info_box(update_items_content_frame, "Prescription", "- Your ISOTRETINOIN prescription can now be renewed.")
-
-    func.info_box(update_items_content_frame, "Prescription", "- Your ADDERALL prescription can now be renewed.")
-
-
+    
     #UPDATE THIS WITH MANUAL TITLE AND FRAME!!!!!!!!
     schedule_timeslots_frame = ctk.CTkFrame(schedule_body)
     schedule_timeslots_frame.pack(side = "top", fill = "x", padx = "10", pady = "10")
@@ -93,7 +80,7 @@ def profiles_page():
     master_frame = ctk.CTkFrame(root)
     master_frame.pack(fill = "x", expand = "True")
 
-    app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", 50), pady = "5")
+    app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Hammersmith One", 50), pady = "5")
     app_name_header.pack(side = "top")
 
     home_page_toolbar_frame = ctk.CTkFrame(master_frame)
@@ -119,7 +106,7 @@ def profiles_page():
     schedule_header = ctk.CTkFrame(schedule_frame)
     schedule_header.pack(side = "top", pady = "5")
 
-    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Arial", 20))
+    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Hammersmith One", 20))
     schedule_header_title.pack(side = "left", anchor = "w")
 
     schedule_header_calendar_button = ctk.CTkButton(schedule_header, text = "Today on the Calendar")
@@ -168,7 +155,7 @@ def new_profile_page():
     master_frame = ctk.CTkFrame(root)
     master_frame.pack(fill = "x", expand = "True")
 
-    app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Arial", 50), pady = "5")
+    app_name_header = ctk.CTkLabel(master_frame, text = "CapsU", font = ("Hammersmith One", 50), pady = "5")
     app_name_header.pack(side = "top")
 
     home_page_toolbar_frame = ctk.CTkFrame(master_frame)
@@ -194,7 +181,7 @@ def new_profile_page():
     schedule_header = ctk.CTkFrame(schedule_frame)
     schedule_header.pack(side = "top", pady = "5")
 
-    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Arial", 20))
+    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Hammersmith One", 20))
     schedule_header_title.pack(side = "left", anchor = "w")
 
     schedule_header_calendar_button = ctk.CTkButton(schedule_header, text = "Today on the Calendar")
@@ -286,7 +273,7 @@ def notification_page():
 
 
     #NOTIFICATIONS BODY
-    notif_header_title = ctk.CTkLabel(schedule_header, text = "Notifications", font = ("Arial", 20))
+    notif_header_title = ctk.CTkLabel(schedule_header, text = "Notifications", font = ("Hammersmith One", 20))
     notif_header_title.pack(side = "left", anchor = "w", fill = "x", expand = "True", pady = "15")
 
     notif_body = ctk.CTkFrame(notif_frame)
