@@ -34,11 +34,11 @@ def info_box(parent_frame, title = str, content = str):
         content (string, optional): The text that is held within the box. Defaults to str.
     """
     #Creating the box
-    box = ctk.CTkFrame(parent_frame)
+    box = ctk.CTkFrame(parent_frame, fg_color = "#DD3E3E")
     box.pack(side = "top", fill = "x", pady = "10", padx = "10")
 
     #Creating the box content
-    box_title = ctk.CTkLabel(box, text = title, font = ("Hammersmith One", 16))
+    box_title = ctk.CTkLabel(box, fg_color = "#DD3E3E", text_color = "#EFEFEF", text = title, font = ("Hammersmith One", 16))
     box_title.pack(side = "top", anchor = "w", padx = "15", pady = "5")
     box_title_content_division = ctk.CTkFrame(box)
     box_title_content_division.pack(side = "top", anchor = "w", padx = "5", pady = "5", fill = "x")
