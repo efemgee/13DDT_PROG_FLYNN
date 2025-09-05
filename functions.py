@@ -50,7 +50,7 @@ def footer(parent_frame):
     footer_frame = ctk.CTkFrame(parent_frame)
     footer_frame.pack(side = "bottom", pady = (20, 0))
 
-    footer_button(footer_frame, pages.med_list_page, "Medications")
+    footer_button(footer_frame, pages.medications_page, "Medications")
     
     
 def input_box(parent_frame, title = str, placeholder = str):

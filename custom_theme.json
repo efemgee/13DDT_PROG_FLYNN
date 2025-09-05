@@ -104,8 +104,8 @@
     "corner_radius": 1000,
     "border_spacing": 4,
     "fg_color": "transparent",
-    "button_color": ["gray55", "gray41"],
-    "button_hover_color": ["gray40", "gray53"]
+    "button_color": ["#0c0a6e", "#0c0a6e"],
+    "button_hover_color": ["#16139c", "#16139c"]
   },
   "CTkSegmentedButton": {
     "corner_radius": 6,
@@ -138,17 +138,17 @@
   "CTkFont": {
     "macOS": {
       "family": "SF Display",
-      "size": 13,
+      "size": 15,
       "weight": "normal"
     },
     "Windows": {
       "family": "Hammersmith One",
-      "size": 13,
+      "size": 15,
       "weight": "normal"
     },
     "Linux": {
       "family": "Hammersmith One",
-      "size": 13,
+      "size": 15,
       "weight": "normal"
     }
   }

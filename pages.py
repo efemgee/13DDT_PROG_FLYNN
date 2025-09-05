@@ -50,16 +50,25 @@ def home_page():
     schedule_header = ctk.CTkFrame(schedule_frame)
     schedule_header.pack(side = "top", pady = "5")
 
-    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Hammersmith One", 20), bg_color = "#DD3E3E")
+    schedule_header_title = ctk.CTkLabel(schedule_header, text = "Today", font = ("Hammersmith One", 25), bg_color = "#DD3E3E", text_color = "#EFEFEF")
     schedule_header_title.pack(side = "left", anchor = "w")
 
     schedule_body = ctk.CTkScrollableFrame(schedule_frame, width = 400, height = 350, fg_color = "#EFEFEF")
     schedule_body.pack(side = "top", pady = "5")
 
-    func.info_box(schedule_body, "9:30 am", "- 2 x ISOTRETINOIN. Take with food and water.")
+    func.info_box(schedule_body, "Waking Up", "- Take x 1 LEVOTHYROXINE.")
+    
+    func.info_box(schedule_body, "Breakfast", "- Take x 1 IBUPROFEN.")
+
+    func.info_box(schedule_body, "Lunch", "- Take x 2 LISINOPRIL.")
+
+    func.info_box(schedule_body, "Dinner", "- Take x 1 ATORVASTATIN.")
+    
+    func.info_box(schedule_body, "Before Bed", "- Take x 2 ISOTRETINOIN.")
 
 
-    func.footer_button(master_frame, med_list_page, "Medications")
+
+    func.footer_button(master_frame, medications_page, "Medications")
 
     root.mainloop()
     
@@ -88,7 +97,7 @@ def profiles_page():
 
     root.mainloop()
     
-def med_list_page():
+def medications_page():
     root = ctk.CTk()
 
     root.title("CapsU")
@@ -99,21 +108,22 @@ def med_list_page():
     master_frame = ctk.CTkFrame(root, height = 500)
     master_frame.pack(fill = "both", expand = "True")
 
-    schedule_body = ctk.CTkFrame(master_frame)
-    schedule_body.pack(side = "top", pady = "5")
+    medications_frame = ctk.CTkFrame(master_frame, fg_color = "#DD3E3E")
+    medications_frame.pack(side = "top", fill = "x", pady = "10", padx = "15")
 
-    update_items_frame = ctk.CTkFrame(schedule_body)
-    update_items_frame.pack(side = "top", fill = "x", padx = "10", pady = "10")
 
-    update_items_title = ctk.CTkLabel(update_items_frame, text = "Medications")
-    update_items_title.pack(side = "top", padx = "5", anchor = "w")
+    medications_title = ctk.CTkLabel(medications_frame, text = "Medications", font = ("Hammersmith One", 20), bg_color = "#DD3E3E", text_color = "#EFEFEF")
+    medications_title.pack(side = "top", anchor = "n")
 
-    update_items_content_frame = ctk.CTkScrollableFrame(update_items_frame, width = 400)
-    update_items_content_frame.pack(side = "top")
+    medications_content_frame = ctk.CTkScrollableFrame(medications_frame, fg_color = "#EFEFEF", width = 400)
+    medications_content_frame.pack(side = "top", fill = "both", pady = "5")
 
-    func.info_box(update_items_content_frame, "Isotretinoin", "- Your ISOTRETINOIN prescription can now be renewed.")
+    func.info_box(medications_content_frame, "Isotretinoin", "- Your ISOTRETINOIN prescription can now be renewed.")
 
-    func.info_box(update_items_content_frame, "Adderall", "- Your ADDERALL prescription can now be renewed.")
+    func.info_box(medications_content_frame, "Adderall", "- Your ADDERALL prescription can now be renewed.")
+    
+    
+    #func.footer_button(master_frame, add_prescription_page, "Add a Prescription")
 
 
     root.mainloop()
