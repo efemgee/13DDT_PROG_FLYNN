@@ -58,9 +58,7 @@ def home_page():
 
     func.info_box(schedule_body, "Waking Up", "- Take x 1 LEVOTHYROXINE.")
     
-    func.info_box(schedule_body, "Breakfast", "- Take x 1 IBUPROFEN.")
-
-    func.info_box(schedule_body, "Lunch", "- Take x 2 LISINOPRIL.")
+    func.info_box(schedule_body, "Breakfast", "- Take x 1 IBUPROFEN.\n- Take x 2 LISINOPRIL.")
 
     func.info_box(schedule_body, "Dinner", "- Take x 1 ATORVASTATIN.")
     
@@ -118,9 +116,15 @@ def medications_page():
     medications_content_frame = ctk.CTkScrollableFrame(medications_frame, fg_color = "#EFEFEF", width = 400)
     medications_content_frame.pack(side = "top", fill = "both", pady = "5")
 
-    func.info_box(medications_content_frame, "Isotretinoin", "- Your ISOTRETINOIN prescription can now be renewed.")
-
-    func.info_box(medications_content_frame, "Adderall", "- Your ADDERALL prescription can now be renewed.")
+    func.info_box(medications_content_frame, "LEVOTHYROXINE", "- Take x 1 after waking up.")
+    
+    func.info_box(medications_content_frame, "IBUPROFEN", "- Take x 1 after breakfast.")
+    
+    func.info_box(medications_content_frame, "LISINOPRIL", "- Take x 2 after breakfast.")
+    
+    func.info_box(medications_content_frame, "ATORVASTATIN", "- Take x 1 after dinner.")
+    
+    func.info_box(medications_content_frame, "ISOTRETINOIN", "- Take x 2 before bed.")
     
     
     #func.footer_button(master_frame, add_prescription_page, "Add a Prescription")
