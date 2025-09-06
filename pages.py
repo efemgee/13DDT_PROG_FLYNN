@@ -174,33 +174,54 @@ def add_medication_page():
 
     root.title("CapsU")
     root.geometry("400x600")
-    root.minsize(400, 300)
-    root.maxsize(400, 300)
+    root.minsize(400, 250)
+    root.maxsize(400, 250)
 
     master_frame = ctk.CTkFrame(root, height = 300)
     master_frame.pack(fill = "both", expand = "True", pady = "20", padx = "20")
 
     def submit_new_medication_details():
-        medication_name = medication_name_input_field.get()
+        medication_name = medication_name_input_field.get().upper()
         medication_dose = medication_dose_combo_box.get()
-        medication_time = medication_time_combo_box.get()
-        print (entered_username, entered_password)
+        medication_time = medication_time_combo_box.get().upper()
+        
+        medication_name_input_field.delete(0,99)
+        medication_dose_combo_box.set("Choose a number...")
+        medication_time_combo_box.set("Choose a time...")
+        
+        print (medication_name, medication_dose, medication_time)
 
 
     medications_title = ctk.CTkLabel(master_frame, text = "Add a Medication", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
     medications_title.pack(side = "top", anchor = "n")
     
-    func.input_box(master_frame, "Medication Name")
+    #func.input_box(master_frame, "Medication Name")
 
     input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
     input_box_frame.pack(side = "top")
-    input_box_title = ctk.CTkLabel(input_box_frame, text="Password", fg_color = "#0c0a6e")
+    input_box_title = ctk.CTkLabel(input_box_frame, text="Medication Name", fg_color = "#0c0a6e")
     input_box_title.pack(side = "top")
     medication_name_input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
     medication_name_input_field.pack(side = "top")
     
+    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.label = ctk.CTkLabel(input_box_frame, text="Dose Size", fg_color = "#0c0a6e")
+    input_box_title.pack(side = "top")
+    medication_dose_combo_box = ctk.entry = ctk.CTkComboBox(input_box_frame, state = "readonly", values = ["1", "2", "3", "4", "5"], width=200, height=20)
+    medication_dose_combo_box.set("Choose a number...")
+    medication_dose_combo_box.pack(side = "top")
     
+    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.label = ctk.CTkLabel(input_box_frame, text="Time of Day", fg_color = "#0c0a6e")
+    input_box_title.pack(side = "top")
+    medication_time_combo_box = ctk.entry = ctk.CTkComboBox(input_box_frame, state = "readonly", values = ["Waking Up", "Breakfast", "Lunch", "Dinner", "Before Bed"], width=200, height=20)
+    medication_time_combo_box.set("Choose a time...")
+    medication_time_combo_box.pack(side = "top")
     
+    submit_button = ctk.CTkButton(master_frame, text = "Submit", width = 50, command = submit_new_medication_details)
+    submit_button.pack(side = "top", pady = "5", padx = "5")
 
 
     root.mainloop()

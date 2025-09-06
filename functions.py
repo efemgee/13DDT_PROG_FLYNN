@@ -78,7 +78,7 @@ def input_box(parent_frame, title = str):
     input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
     input_field.pack(side = "top")
     
-def selection_box(parent_frame, title = str, placeholder = str):
+def selection_box(parent_frame, title = str):
     """Creates a titled selection box that the user can choose an option from.
 
     Args:
@@ -89,7 +89,5 @@ def selection_box(parent_frame, title = str, placeholder = str):
     input_box_frame.pack(side = "top")
     input_box_title = ctk.label = ctk.CTkLabel(input_box_frame, text=title)
     input_box_title.pack(side = "top")
-    input_field = ctk.entry = ctk.CTkComboBox(input_box_frame, placeholder_text=placeholder, width=200, height=20)
-    input_field.pack(side = "top")
-    
-    
+    combo_box = ctk.entry = ctk.CTkComboBox(input_box_frame, state = "readonly", values = ["Choose a number of pills...", 1, 2, 3, 4, 5], width=200, height=20)
+    combo_box.pack(side = "top")

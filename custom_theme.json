@@ -93,11 +93,11 @@
   "CTkComboBox": {
     "corner_radius": 6,
     "border_width": 2,
-    "fg_color": ["#F9F9FA", "#343638"],
-    "border_color": ["#979DA2", "#565B5E"],
-    "button_color": ["#979DA2", "#565B5E"],
+    "fg_color": ["#EFEFEF", "#EFEFEF"],
+    "border_color": ["#DD3E3E", "#DD3E3E"],
+    "button_color": ["#DD3E3E", "#DD3E3E"],
     "button_hover_color": ["#6E7174", "#7A848D"],
-    "text_color": ["gray14", "gray84"],
+    "text_color": ["#100d80", "#100d80"],
     "text_color_disabled": ["gray50", "gray45"]
   },
   "CTkScrollbar": {
