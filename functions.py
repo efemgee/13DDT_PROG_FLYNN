@@ -38,33 +38,34 @@ def footer_button(parent_frame, command_function, title = str):
         title (string, optional): The text that will be displayed on the button. Defaults to str.
     """
     button = ctk.CTkButton(parent_frame, text = title, command = command_function, width = 50)
-    button.pack(side = "top", padx = 3)
-
-
-def footer(parent_frame):
-    """The toolbar which holds the button that allow the user to open the medication page of the application.
-
-    Args:
-        parent_frame (parent): The frame that the footer will be placed in.
-    """
-    footer_frame = ctk.CTkFrame(parent_frame)
-    footer_frame.pack(side = "bottom", pady = (20, 0))
-
-    footer_button(footer_frame, pages.medications_page, "Medications")
+    button.pack(side = "top", padx = 3)    
     
-    
-def input_box(parent_frame, title = str, placeholder = str):
+def input_box(parent_frame, title = str):
     """Creates a titled box that the user can input information into.
 
     Args:
         parent_frame (parent): The frame that the box will be placed in.
         title (string): The text that will be displayed as the title of the box. Defaults to str.
-        placeholder (string): The default text within the entry field. Defaults to str.
+    """
+    input_box_frame = ctk.CTkFrame(parent_frame)
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.CTkLabel(input_box_frame, text=title)
+    input_box_title.pack(side = "top")
+    input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
+    input_field.pack(side = "top")
+    
+def selection_box(parent_frame, title = str, placeholder = str):
+    """Creates a titled box that the user can input information into.
+
+    Args:
+        parent_frame (parent): The frame that the box will be placed in.
+        title (string): The text that will be displayed as the title of the box. Defaults to str.
     """
     input_box_frame = ctk.CTkFrame(parent_frame)
     input_box_frame.pack(side = "top")
     input_box_title = ctk.label = ctk.CTkLabel(input_box_frame, text=title)
     input_box_title.pack(side = "top")
-    input_field = ctk.entry = ctk.CTkEntry(input_box_frame, placeholder_text=placeholder, width=140, height=20)
+    input_field = ctk.entry = ctk.CTkEntry(input_box_frame, placeholder_text=placeholder, width=200, height=20)
     input_field.pack(side = "top")
+    
     

@@ -8,7 +8,7 @@ from tkinter import ttk
 import customtkinter as ctk
 
 ctk.set_appearance_mode("dark")
-ctk.set_default_color_theme("/theme.json")
+ctk.set_default_color_theme("custom_theme.json")
 
 
 
@@ -18,7 +18,7 @@ cur = conn.cursor()
 cur.execute("""
 CREATE TABLE IF NOT EXISTS logindata (
     id INTEGER PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
+    username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 )
 """)
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS logindata (
 
 def new_user(username = str, password = str):
     username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
-    cur.execute("INSERT INTO logindata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
+    cur.execute("INSERT OR IGNORE INTO logindata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
 
     cur.execute(f"""
         CREATE TABLE IF NOT EXISTS {username} (
@@ -77,6 +77,7 @@ def retrieve_prescriptions(current_user = str):
     
     for row in rows:
         print(row)
+        
         #make a function that will take the specifications within this list and put it into a gui box. Format the home page so that there are separate boxes that this function can pack things into depending on what time of day the medication must be taken.
         
 
