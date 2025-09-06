@@ -7,6 +7,9 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("custom_theme.json")
 
 
+
+
+
 def info_box(parent_frame, title = str, content = str):
     """Creates a box of information that can be used for items in a list.
 

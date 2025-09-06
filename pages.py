@@ -7,8 +7,9 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("custom_theme.json")
 
 
-def profiles_page():
-    """Opens the profiles/login page of the program.
+
+def log_in_page():
+    """Opens the log in page of the program.
     """
     root = ctk.CTk()
 
@@ -39,18 +40,20 @@ def profiles_page():
 def home_page():
     """Opens the home page of the program.
     """
-    root = ctk.CTk()
+    homeroot = ctk.CTk()
 
     #Defining the window's properties
-    root.title("CapsU")
-    root.geometry("400x600")
-    root.minsize(400, 600)
-    root.maxsize(400, 600)
+    homeroot.title("CapsU")
+    homeroot.geometry("400x600")
+    homeroot.minsize(400, 600)
+    homeroot.maxsize(400, 600)
 
-    master_frame = ctk.CTkFrame(root)
+    master_frame = ctk.CTkFrame(homeroot)
     master_frame.pack(fill = "x", expand = "True")
 
-
+    def log_out():
+        homeroot.destroy()
+        log_in_page()
 
     #The title header for the home page
     app_name_header = ctk.CTkFrame(master_frame)
@@ -64,14 +67,14 @@ def home_page():
 
     home_page_toolbar_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e", bg_color = "transparent")
     home_page_toolbar_frame.pack(side = "top", fill = "x", padx = "10")
-    root.geometry("300")
+    homeroot.geometry("300")
 
 
     current_user_display = ctk.CTkLabel(home_page_toolbar_frame, text = "CurrentUser")
     current_user_display.pack(side = "left", padx = "10")
 
-    profile_switch_button = ctk.CTkButton(home_page_toolbar_frame, text = "Switch Profile", width = 50, command = profiles_page)
-    profile_switch_button.pack(side = "right", pady = "5", padx = "5")
+    log_out_button = ctk.CTkButton(home_page_toolbar_frame, text = "Log Out", width = 50, command = log_out)
+    log_out_button.pack(side = "right", pady = "5", padx = "5")
 
     schedule_frame = ctk.CTkFrame(master_frame, fg_color = "#DD3E3E")
     schedule_frame.pack(side = "top", fill = "x", pady = "10", padx = "15")
@@ -97,7 +100,7 @@ def home_page():
 
     func.footer_button(master_frame, medication_list_page, "Medications")
 
-    root.mainloop()
+    homeroot.mainloop()
     
 
 
