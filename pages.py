@@ -1,11 +1,15 @@
-from tkinter import *
-from tkinter import ttk
+#database stuff
+import sqlite3
+import hashlib
+
 import customtkinter as ctk
 import functions as func
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("custom_theme.json")
 
+conn = sqlite3.connect("userdata.db")
+cur = conn.cursor()
 
 
 def log_in_page():
@@ -16,13 +20,16 @@ def log_in_page():
     #Defining the window's properties
     root.title("CapsU")
     root.geometry("400x600")
-    root.minsize(400, 600)
-    root.maxsize(400, 600)
+    root.minsize(400, 400)
+    root.maxsize(400, 400)
 
     master_frame = ctk.CTkFrame(root)
     master_frame.pack(fill = "x", expand = "True")
 
-
+    def submit_log_in_details():
+        entered_username = username_input_field.get()
+        entered_password = hashlib.sha256(password_input_field.get().encode()).hexdigest()
+        print (entered_username, entered_password)
 
     app_name_header = ctk.CTkFrame(master_frame)
     app_name_header.pack(side = "top", pady = "5")
@@ -34,6 +41,22 @@ def log_in_page():
     app_name_header_u.pack(side = "left")
 
     
+    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.CTkLabel(input_box_frame, text="Username", fg_color = "#0c0a6e")
+    input_box_title.pack(side = "top")
+    username_input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
+    username_input_field.pack(side = "top")
+    
+    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.CTkLabel(input_box_frame, text="Password", fg_color = "#0c0a6e")
+    input_box_title.pack(side = "top")
+    password_input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
+    password_input_field.pack(side = "top")
+    
+    submit_button = ctk.CTkButton(master_frame, text = "Submit", width = 50, command = submit_log_in_details)
+    submit_button.pack(side = "top", pady = "5", padx = "5")
 
     root.mainloop()
 
@@ -157,11 +180,26 @@ def add_medication_page():
     master_frame = ctk.CTkFrame(root, height = 300)
     master_frame.pack(fill = "both", expand = "True", pady = "20", padx = "20")
 
+    def submit_new_medication_details():
+        medication_name = medication_name_input_field.get()
+        medication_dose = medication_dose_combo_box.get()
+        medication_time = medication_time_combo_box.get()
+        print (entered_username, entered_password)
+
+
     medications_title = ctk.CTkLabel(master_frame, text = "Add a Medication", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
     medications_title.pack(side = "top", anchor = "n")
     
     func.input_box(master_frame, "Medication Name")
 
+    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
+    input_box_frame.pack(side = "top")
+    input_box_title = ctk.CTkLabel(input_box_frame, text="Password", fg_color = "#0c0a6e")
+    input_box_title.pack(side = "top")
+    medication_name_input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
+    medication_name_input_field.pack(side = "top")
+    
+    
     
 
 

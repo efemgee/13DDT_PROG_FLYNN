@@ -1,14 +1,35 @@
-from tkinter import *
-from tkinter import ttk
+#database stuff
+import sqlite3
+import hashlib
+
 import customtkinter as ctk
 import pages
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("custom_theme.json")
 
+conn = sqlite3.connect("userdata.db")
+cur = conn.cursor()
+
+
+#OTHER ------------------------------------------------------------------------
+
+def new_user(username = str, password = str):
+    username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
+    cur.execute("INSERT OR IGNORE INTO logindata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
+
+    cur.execute(f"""
+        CREATE TABLE IF NOT EXISTS {username} (
+            id INTEGER PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            dose INTEGER NOT NULL,
+            time VARCHAR(255) NOT NULL
+            )
+            """)
 
 
 
+#GUI ELEMENTS -----------------------------------------------------------------
 
 def info_box(parent_frame, title = str, content = str):
     """Creates a box of information that can be used for items in a list.
@@ -50,15 +71,15 @@ def input_box(parent_frame, title = str):
         parent_frame (parent): The frame that the box will be placed in.
         title (string): The text that will be displayed as the title of the box. Defaults to str.
     """
-    input_box_frame = ctk.CTkFrame(parent_frame)
+    input_box_frame = ctk.CTkFrame(parent_frame, fg_color = "#0c0a6e")
     input_box_frame.pack(side = "top")
-    input_box_title = ctk.CTkLabel(input_box_frame, text=title)
+    input_box_title = ctk.CTkLabel(input_box_frame, text=title, fg_color = "#0c0a6e")
     input_box_title.pack(side = "top")
     input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
     input_field.pack(side = "top")
     
 def selection_box(parent_frame, title = str, placeholder = str):
-    """Creates a titled box that the user can input information into.
+    """Creates a titled selection box that the user can choose an option from.
 
     Args:
         parent_frame (parent): The frame that the box will be placed in.
@@ -68,7 +89,7 @@ def selection_box(parent_frame, title = str, placeholder = str):
     input_box_frame.pack(side = "top")
     input_box_title = ctk.label = ctk.CTkLabel(input_box_frame, text=title)
     input_box_title.pack(side = "top")
-    input_field = ctk.entry = ctk.CTkEntry(input_box_frame, placeholder_text=placeholder, width=200, height=20)
+    input_field = ctk.entry = ctk.CTkComboBox(input_box_frame, placeholder_text=placeholder, width=200, height=20)
     input_field.pack(side = "top")
     
     
