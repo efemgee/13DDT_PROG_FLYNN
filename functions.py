@@ -14,6 +14,19 @@ cur = conn.cursor()
 
 #OTHER ------------------------------------------------------------------------
 
+def medication_to_database(user, medication_name, medication_dose, medication_time):
+    cur.execute(f"INSERT INTO {user} (name, dose, time) VALUES (?, ?, ?)", (medication_name, medication_dose, medication_time))
+
+
+def retrieve_prescriptions(current_user = str):
+    current_prescriptions = cur.execute(f"""SELECT * FROM {current_user} WHERE id >= 0""")
+    print(current_prescriptions)
+    rows = cur.fetchall()
+    
+    for row in rows:
+        print(row)
+
+
 def new_user(username = str, password = str):
     username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
     cur.execute("INSERT OR IGNORE INTO logindata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
@@ -64,6 +77,7 @@ def footer_button(parent_frame, command_function, title = str):
     button = ctk.CTkButton(parent_frame, text = title, command = command_function, width = 50)
     button.pack(side = "top", padx = 3)    
     
+    
 def input_box(parent_frame, title = str):
     """Creates a titled box that the user can input information into.
 
@@ -77,6 +91,7 @@ def input_box(parent_frame, title = str):
     input_box_title.pack(side = "top")
     input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
     input_field.pack(side = "top")
+    
     
 def selection_box(parent_frame, title = str):
     """Creates a titled selection box that the user can choose an option from.

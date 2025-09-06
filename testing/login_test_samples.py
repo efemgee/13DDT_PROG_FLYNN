@@ -34,14 +34,7 @@ def new_user(username = str, password = str):
             )
             """)
     
-# def submit_on_click():
-#     username = username_input.get()
-#     password = password_input.get()
-    
-#     if username and password:
-#         #check_login_details
-#     else:
-        #message: 'please fill out all fields'
+
     
 #checks the username and passcode against the database
 #def check_login_details:

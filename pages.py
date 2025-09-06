@@ -12,6 +12,10 @@ conn = sqlite3.connect("userdata.db")
 cur = conn.cursor()
 
 
+global current_user
+current_user = "frankinside"
+
+
 def log_in_page():
     """Opens the log in page of the program.
     """
@@ -29,7 +33,9 @@ def log_in_page():
     def submit_log_in_details():
         entered_username = username_input_field.get()
         entered_password = hashlib.sha256(password_input_field.get().encode()).hexdigest()
+    
         print (entered_username, entered_password)
+        #check_login_details()
 
     app_name_header = ctk.CTkFrame(master_frame)
     app_name_header.pack(side = "top", pady = "5")
@@ -40,6 +46,8 @@ def log_in_page():
     app_name_header_u = ctk.CTkLabel(app_name_header, text = "U", font = ("Hammersmith One", 70), text_color = "#DD3E3E", fg_color = "#100d80")
     app_name_header_u.pack(side = "left")
 
+    medications_title = ctk.CTkLabel(master_frame, text = "Log In", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
+    medications_title.pack(side = "top", anchor = "n", pady = "10")
     
     input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
     input_box_frame.pack(side = "top")
@@ -93,7 +101,7 @@ def home_page():
     homeroot.geometry("300")
 
 
-    current_user_display = ctk.CTkLabel(home_page_toolbar_frame, text = "CurrentUser")
+    current_user_display = ctk.CTkLabel(home_page_toolbar_frame, text = current_user)
     current_user_display.pack(side = "left", padx = "10")
 
     log_out_button = ctk.CTkButton(home_page_toolbar_frame, text = "Log Out", width = 50, command = log_out)
@@ -190,12 +198,13 @@ def add_medication_page():
         medication_time_combo_box.set("Choose a time...")
         
         print (medication_name, medication_dose, medication_time)
+        print(current_user)
+        func.medication_to_database(current_user, medication_name, medication_dose, medication_time)
 
 
     medications_title = ctk.CTkLabel(master_frame, text = "Add a Medication", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
     medications_title.pack(side = "top", anchor = "n")
-    
-    #func.input_box(master_frame, "Medication Name")
+
 
     input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
     input_box_frame.pack(side = "top")
