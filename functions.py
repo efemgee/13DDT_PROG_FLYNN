@@ -12,7 +12,34 @@ conn = sqlite3.connect("userdata.db")
 cur = conn.cursor()
 
 
-#OTHER ------------------------------------------------------------------------
+#LISTING STUFF -----------------------------------------------------------------
+
+#def daily_schedule(user, ):
+    
+
+def medication_list(user, parent_frame):
+    
+    current_prescriptions = cur.execute(f"""SELECT * FROM {user} WHERE id >= 0""")
+    print(current_prescriptions)
+    rows = cur.fetchall()
+    
+    for row in rows:
+        med_name = row[1]
+        med_dose = row[2]
+        med_time = row[3]
+        
+        if med_time == "BEFORE BED":  
+            med_content = f"- Take x {med_dose} before bed."
+        else:
+            med_content = f"- Take x {med_dose} after {med_time.lower()}."
+        
+        info_box(parent_frame, med_name, med_content)
+        
+        
+    
+
+
+#DATABASE STUFF ----------------------------------------------------------------
 
 def check_log_in_details(root, entered_username, entered_password):
     
@@ -44,13 +71,13 @@ def medication_to_database(user, medication_name, medication_dose, medication_ti
     conn.commit()
 
 
-def retrieve_prescriptions(current_user = str):
-    current_prescriptions = cur.execute(f"""SELECT * FROM {current_user} WHERE id >= 0""")
-    print(current_prescriptions)
-    rows = cur.fetchall()
+# def retrieve_prescriptions(current_user = str):
+#     current_prescriptions = cur.execute(f"""SELECT * FROM {current_user} WHERE id >= 0""")
+#     print(current_prescriptions)
+#     rows = cur.fetchall()
     
-    for row in rows:
-        print(row)
+#     for row in rows:
+#         print(row)
 
 
 def new_user(username = str, password = str):
@@ -70,7 +97,7 @@ def new_user(username = str, password = str):
 
 
 
-#GUI ELEMENTS -----------------------------------------------------------------
+#GUI ELEMENTS ------------------------------------------------------------------
 
 def info_box(parent_frame, title = str, content = str):
     """Creates a box of information that can be used for items in a list.
