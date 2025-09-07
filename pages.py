@@ -66,63 +66,12 @@ def log_in_page():
     
     
     exit_button = ctk.CTkButton(root, text = "Exit Program", width = 50, command = close_program, fg_color = "#0c0a6e", border_color = "#DD3E3E", hover_color = "#aa2525", border_width = 2)
-    exit_button.pack(side = "bottom", pady = "10", padx = "5")
-    
-    new_user_button = ctk.CTkButton(root, text = "New User", width = 50, command = lambda: add_user_page(root))
-    new_user_button.pack(side = "bottom", pady = "10", padx = "5")
-    
+    exit_button.pack(side = "bottom", pady = "10", padx = "5")   
 
 
     root.mainloop()
     
-def add_user_page(log_in_root):
-    root = ctk.CTk()
 
-    #Defining the window's properties
-    root.title("CapsU")
-    root.geometry("400x600")
-    root.minsize(400, 400)
-    root.maxsize(400, 400)
-
-    master_frame = ctk.CTkFrame(root)
-    master_frame.pack(fill = "x", expand = "True")
-
-    def submit_new_user_details():
-        entered_username = username_input_field.get()
-        entered_password = hashlib.sha256(password_input_field.get().encode()).hexdigest()
-        
-        func.new_user(entered_username, entered_password)
-        root.destroy()
-        log_in_root.destroy()
-        log_in_page()
-        
-
-    app_name_header = ctk.CTkFrame(master_frame)
-    app_name_header.pack(side = "top", pady = "5")
-    
-
-    medications_title = ctk.CTkLabel(master_frame, text = "New User", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
-    medications_title.pack(side = "top", anchor = "n", pady = "10")
-    
-    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
-    input_box_frame.pack(side = "top")
-    input_box_title = ctk.CTkLabel(input_box_frame, text="Username", fg_color = "#0c0a6e")
-    input_box_title.pack(side = "top")
-    username_input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
-    username_input_field.pack(side = "top")
-    
-    input_box_frame = ctk.CTkFrame(master_frame, fg_color = "#0c0a6e")
-    input_box_frame.pack(side = "top")
-    input_box_title = ctk.CTkLabel(input_box_frame, text="Password", fg_color = "#0c0a6e")
-    input_box_title.pack(side = "top")
-    password_input_field = ctk.CTkEntry(input_box_frame, show = "*", placeholder_text="Type here...", width=200, height=20)
-    password_input_field.pack(side = "top")
-    
-    
-    submit_button = ctk.CTkButton(master_frame, text = "Submit", width = 50, command = submit_new_user_details)
-    submit_button.pack(side = "top", pady = "5", padx = "5")
-
-    root.mainloop()
 
 def home_page(current_user):
     """Opens the home page of the program.
