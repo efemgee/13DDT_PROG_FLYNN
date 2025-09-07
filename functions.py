@@ -14,8 +14,34 @@ cur = conn.cursor()
 
 #OTHER ------------------------------------------------------------------------
 
+def check_log_in_details(root, entered_username, entered_password):
+    
+    cur.execute("SELECT username FROM logindata WHERE username = ?", (entered_username,))
+    correct_username = cur.fetchone()
+    print(correct_username)
+    
+    if correct_username:
+        cur.execute("SELECT password FROM logindata WHERE password = ?", (entered_password,))
+        correct_password = cur.fetchone()
+        
+        print(correct_password)
+        if correct_password:
+            root.destroy()
+            pages.home_page(entered_username)
+            
+        else:
+            print("ERROR!")
+    else:
+        print("ERROR!")
+
+
 def medication_to_database(user, medication_name, medication_dose, medication_time):
-    cur.execute(f"INSERT INTO {user} (name, dose, time) VALUES (?, ?, ?)", (medication_name, medication_dose, medication_time))
+    
+    print(user, medication_name, medication_dose, medication_time)
+    
+    cur.execute(f"""INSERT INTO {user} (name, dose, time)
+                VALUES (?, ?, ?)""", (medication_name, medication_dose, medication_time))
+    conn.commit()
 
 
 def retrieve_prescriptions(current_user = str):
@@ -29,7 +55,8 @@ def retrieve_prescriptions(current_user = str):
 
 def new_user(username = str, password = str):
     username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
-    cur.execute("INSERT OR IGNORE INTO logindata (username, password) VALUES (?, ?)", (username_to_enter, password_to_enter))
+    cur.execute("""INSERT OR IGNORE INTO logindata (username, password)
+                VALUES (?, ?)""", (username_to_enter, password_to_enter))
 
     cur.execute(f"""
         CREATE TABLE IF NOT EXISTS {username} (
@@ -39,6 +66,7 @@ def new_user(username = str, password = str):
             time VARCHAR(255) NOT NULL
             )
             """)
+    conn.commit()
 
 
 

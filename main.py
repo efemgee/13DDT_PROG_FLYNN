@@ -14,5 +14,6 @@ CREATE TABLE IF NOT EXISTS logindata (
     password VARCHAR(255) NOT NULL
 )
 """)
+conn.commit()
 
-pages.home_page()
+pages.log_in_page()

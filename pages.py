@@ -8,12 +8,7 @@ import functions as func
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("custom_theme.json")
 
-conn = sqlite3.connect("userdata.db")
-cur = conn.cursor()
 
-
-global current_user
-current_user = "frankinside"
 
 
 def log_in_page():
@@ -35,7 +30,10 @@ def log_in_page():
         entered_password = hashlib.sha256(password_input_field.get().encode()).hexdigest()
     
         print (entered_username, entered_password)
-        #check_login_details()
+        func.check_log_in_details(root, entered_username, entered_password)
+
+    def close_program():
+        root.destroy()
 
     app_name_header = ctk.CTkFrame(master_frame)
     app_name_header.pack(side = "top", pady = "5")
@@ -60,19 +58,22 @@ def log_in_page():
     input_box_frame.pack(side = "top")
     input_box_title = ctk.CTkLabel(input_box_frame, text="Password", fg_color = "#0c0a6e")
     input_box_title.pack(side = "top")
-    password_input_field = ctk.CTkEntry(input_box_frame, placeholder_text="Type here...", width=200, height=20)
+    password_input_field = ctk.CTkEntry(input_box_frame, show = "*", placeholder_text="Type here...", width=200, height=20)
     password_input_field.pack(side = "top")
     
     submit_button = ctk.CTkButton(master_frame, text = "Submit", width = 50, command = submit_log_in_details)
     submit_button.pack(side = "top", pady = "5", padx = "5")
+    
+    submit_button = ctk.CTkButton(root, text = "Exit Program", width = 50, command = close_program)
+    submit_button.pack(side = "bottom", pady = "10", padx = "5")
 
     root.mainloop()
 
-def home_page():
+def home_page(current_user):
     """Opens the home page of the program.
     """
     homeroot = ctk.CTk()
-
+    
     #Defining the window's properties
     homeroot.title("CapsU")
     homeroot.geometry("400x600")
@@ -129,14 +130,14 @@ def home_page():
 
 
 
-    func.footer_button(master_frame, medication_list_page, "Medications")
+    func.footer_button(master_frame, lambda: medication_list_page(current_user), "Medications")
 
     homeroot.mainloop()
     
 
 
     
-def medication_list_page():
+def medication_list_page(current_user):
     """Opens the page showing the current user's list of current medications.
     """
     root = ctk.CTk()
@@ -170,12 +171,12 @@ def medication_list_page():
     func.info_box(medications_content_frame, "ISOTRETINOIN", "- Take x 2 before bed.")
     
     
-    func.footer_button(master_frame, add_medication_page, "Add a Medication")
+    func.footer_button(master_frame, lambda: add_medication_page(current_user), "Add a Medication")
 
 
     root.mainloop()
 
-def add_medication_page():
+def add_medication_page(current_user):
     """Opens the page where the current user can add a medication to their list of medications.
     """
     root = ctk.CTk()
@@ -200,6 +201,7 @@ def add_medication_page():
         print (medication_name, medication_dose, medication_time)
         print(current_user)
         func.medication_to_database(current_user, medication_name, medication_dose, medication_time)
+        func.retrieve_prescriptions(current_user)
 
 
     medications_title = ctk.CTkLabel(master_frame, text = "Add a Medication", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
