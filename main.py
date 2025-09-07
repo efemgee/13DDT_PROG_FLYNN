@@ -1,6 +1,5 @@
 #database stuff
 import sqlite3
-import hashlib
 
 import pages
 

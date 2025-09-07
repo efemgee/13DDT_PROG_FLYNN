@@ -141,9 +141,9 @@ def check_log_in_details(root, entered_username, entered_password):
             pages.home_page(entered_username)
             
         else:
-            print("ERROR!")
+            print("ERROR 2!")
     else:
-        print("ERROR!")
+        print("ERROR 1!")
 
 
 def medication_to_database(user, medication_name, medication_dose, medication_time):
@@ -164,11 +164,11 @@ def medication_to_database(user, medication_name, medication_dose, medication_ti
 #         print(row)
 
 
-def new_user(username = str, password = str):
+def new_user(username, password):
     username_to_enter, password_to_enter = username, hashlib.sha256(password.encode()).hexdigest()
     cur.execute("""INSERT OR IGNORE INTO logindata (username, password)
                 VALUES (?, ?)""", (username_to_enter, password_to_enter))
-
+    conn.commit()
     cur.execute(f"""
         CREATE TABLE IF NOT EXISTS {username} (
             id INTEGER PRIMARY KEY,
