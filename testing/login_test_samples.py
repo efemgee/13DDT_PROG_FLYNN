@@ -71,14 +71,9 @@ def retrieve_prescriptions(current_user = str):
         #make a function that will take the specifications within this list and put it into a gui box. Format the home page so that there are separate boxes that this function can pack things into depending on what time of day the medication must be taken.
         
 
-# username1, password1 = "frankinside", hashlib.sha256("bolts".encode()).hexdigest()
-# username2, password2 = "orpo", hashlib.sha256("poor".encode()).hexdigest()
-# username3, password3 = "plaktuk", hashlib.sha256("kultklap".encode()).hexdigest()
-# username4, password4 = "pikpluk", hashlib.sha256("toothpik".encode()).hexdigest()
-# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username1, password1))
-# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username2, password2))
-# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username3, password3))
-# cur.execute("INSERT INTO userdata (username, password) VALUES (?, ?)", (username4, password4))
+
+
+#USERS AND PASSWORDS TO REMEMBER!!!!
 
 new_user("frankinside", "bolts")
 new_user("orpo", "poor")

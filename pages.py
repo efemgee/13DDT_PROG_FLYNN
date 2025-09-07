@@ -134,14 +134,14 @@ def home_page(current_user):
 
 
 
-    func.footer_button(master_frame, lambda: medication_list_page(current_user), "Medications")
+    func.footer_button(master_frame, lambda: medication_list_page(homeroot, current_user), "Medications")
 
     homeroot.mainloop()
     
 
 
     
-def medication_list_page(current_user):
+def medication_list_page(main_root, current_user):
     """Opens the page showing the current user's list of current medications.
     """
     root = ctk.CTk()
@@ -168,12 +168,12 @@ def medication_list_page(current_user):
     func.medication_list(current_user, medications_content_frame)
     
     
-    func.footer_button(master_frame, lambda: add_medication_page(current_user), "Add a Medication")
+    func.footer_button(master_frame, lambda: add_medication_page(main_root, root, current_user), "Add a Medication")
 
 
     root.mainloop()
 
-def add_medication_page(current_user):
+def add_medication_page(main_root, med_list_root, current_user):
     """Opens the page where the current user can add a medication to their list of medications.
     """
     root = ctk.CTk()
@@ -198,6 +198,12 @@ def add_medication_page(current_user):
         print (medication_name, medication_dose, medication_time)
         print(current_user)
         func.medication_to_database(current_user, medication_name, medication_dose, medication_time)
+        
+        med_list_root.destroy()
+        root.destroy()
+        main_root.destroy()
+        home_page(current_user)
+        
 
 
     medications_title = ctk.CTkLabel(master_frame, text = "Add a Medication", font = ("Hammersmith One", 25), text_color = "#EFEFEF")
