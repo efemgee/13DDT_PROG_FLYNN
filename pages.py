@@ -120,13 +120,17 @@ def home_page(current_user):
     schedule_body = ctk.CTkScrollableFrame(schedule_frame, width = 400, height = 350, fg_color = "#EFEFEF")
     schedule_body.pack(side = "top", pady = "5")
 
-    func.info_box(schedule_body, "Waking Up", "- Take x 1 LEVOTHYROXINE.")
-    
-    func.info_box(schedule_body, "Breakfast", "- Take x 1 IBUPROFEN.\n- Take x 2 LISINOPRIL.")
 
-    func.info_box(schedule_body, "Dinner", "- Take x 1 ATORVASTATIN.")
+
+    func.daily_schedule(current_user, schedule_body)
     
-    func.info_box(schedule_body, "Before Bed", "- Take x 2 ISOTRETINOIN.")
+    # func.info_box(schedule_body, "Waking Up", "- Take x 1 LEVOTHYROXINE.")
+    
+    # func.info_box(schedule_body, "Breakfast", "- Take x 1 IBUPROFEN.\n- Take x 2 LISINOPRIL.")
+
+    # func.info_box(schedule_body, "Dinner", "- Take x 1 ATORVASTATIN.")
+    
+    # func.info_box(schedule_body, "Before Bed", "- Take x 2 ISOTRETINOIN.")
 
 
 
@@ -163,16 +167,6 @@ def medication_list_page(current_user):
 
     func.medication_list(current_user, medications_content_frame)
     
-    # func.info_box(medications_content_frame, "LEVOTHYROXINE", "- Take x 1 after waking up.")
-    
-    # func.info_box(medications_content_frame, "IBUPROFEN", "- Take x 1 after breakfast.")
-    
-    # func.info_box(medications_content_frame, "LISINOPRIL", "- Take x 2 after breakfast.")
-    
-    # func.info_box(medications_content_frame, "ATORVASTATIN", "- Take x 1 after dinner.")
-    
-    # func.info_box(medications_content_frame, "ISOTRETINOIN", "- Take x 2 before bed.")
-    
     
     func.footer_button(master_frame, lambda: add_medication_page(current_user), "Add a Medication")
 
@@ -204,7 +198,6 @@ def add_medication_page(current_user):
         print (medication_name, medication_dose, medication_time)
         print(current_user)
         func.medication_to_database(current_user, medication_name, medication_dose, medication_time)
-        func.retrieve_prescriptions(current_user)
 
 
     medications_title = ctk.CTkLabel(master_frame, text = "Add a Medication", font = ("Hammersmith One", 25), text_color = "#EFEFEF")

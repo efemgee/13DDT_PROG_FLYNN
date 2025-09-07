@@ -14,7 +14,91 @@ cur = conn.cursor()
 
 #LISTING STUFF -----------------------------------------------------------------
 
-#def daily_schedule(user, ):
+def daily_schedule(user, parent_frame):
+    
+    current_prescriptions = cur.execute(f"""SELECT * FROM {user} WHERE id >= 0""")
+    print(current_prescriptions)
+    rows = cur.fetchall()
+    
+    waking_up_meds = []
+    breakfast_meds = []
+    lunch_meds = []
+    dinner_meds = []
+    before_bed_meds = []
+        
+    for row in rows:
+        if "WAKING UP" in row:
+            waking_up_meds.append(row)
+        elif "BREAKFAST" in row:
+            breakfast_meds.append(row)
+        elif "LUNCH" in row:
+            lunch_meds.append(row)
+        elif "DINNER" in row:
+            dinner_meds.append(row)
+        elif "BEFORE BED" in row:
+            before_bed_meds.append(row)
+    print(waking_up_meds)
+    print(breakfast_meds)
+    print(lunch_meds)
+    print(dinner_meds)
+    print(before_bed_meds)
+    
+    if waking_up_meds:
+        med_content = ""
+        for med in waking_up_meds:
+            med_name = med[1]
+            med_dose = med[2]
+            med_time = med[3]
+            
+            med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        info_box(parent_frame, med_time.title(), med_content)
+        
+    if breakfast_meds:
+        med_content = ""
+        for med in breakfast_meds:
+            med_name = med[1]
+            med_dose = med[2]
+            med_time = med[3]
+            
+            med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        info_box(parent_frame, med_time.title(), med_content)
+    
+    if lunch_meds:
+        med_content = ""
+        for med in lunch_meds:
+            med_name = med[1]
+            med_dose = med[2]
+            med_time = med[3]
+            
+            med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        info_box(parent_frame, med_time.title(), med_content)
+        
+    if dinner_meds:
+        med_content = ""
+        for med in dinner_meds:
+            med_name = med[1]
+            med_dose = med[2]
+            med_time = med[3]
+            
+            med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        info_box(parent_frame, med_time.title(), med_content)
+        
+    if before_bed_meds:
+        med_content = ""
+        for med in before_bed_meds:
+            med_name = med[1]
+            med_dose = med[2]
+            med_time = med[3]
+            
+            med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        info_box(parent_frame, med_time.title(), med_content)
+            
+            
     
 
 def medication_list(user, parent_frame):
