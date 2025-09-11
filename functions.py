@@ -52,6 +52,8 @@ def daily_schedule(user, parent_frame):
             
             med_content += f"- Take x {med_dose} {med_name}.\n"
         
+        med_content = med_content[:-2]
+        
         info_box(parent_frame, med_time.title(), med_content)
         
     if breakfast_meds:
@@ -62,6 +64,8 @@ def daily_schedule(user, parent_frame):
             med_time = med[3]
             
             med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        med_content = med_content[:-2]
         
         info_box(parent_frame, med_time.title(), med_content)
     
@@ -74,6 +78,8 @@ def daily_schedule(user, parent_frame):
             
             med_content += f"- Take x {med_dose} {med_name}.\n"
         
+        med_content = med_content[:-2]
+        
         info_box(parent_frame, med_time.title(), med_content)
         
     if dinner_meds:
@@ -85,6 +91,8 @@ def daily_schedule(user, parent_frame):
             
             med_content += f"- Take x {med_dose} {med_name}.\n"
         
+        med_content = med_content[:-2]
+        
         info_box(parent_frame, med_time.title(), med_content)
         
     if before_bed_meds:
@@ -95,6 +103,8 @@ def daily_schedule(user, parent_frame):
             med_time = med[3]
             
             med_content += f"- Take x {med_dose} {med_name}.\n"
+        
+        med_content = med_content[:-2]
         
         info_box(parent_frame, med_time.title(), med_content)
             
@@ -200,7 +210,7 @@ def info_box(parent_frame, title = str, content = str):
     box_title.pack(side = "top", anchor = "w", padx = "15", pady = "2")
     box_title_content_division = ctk.CTkFrame(box)
     box_title_content_division.pack(side = "top", anchor = "w", padx = "5", pady = "5", fill = "x")
-    box_content = ctk.CTkTextbox(box_title_content_division, height = 50, width = 400, wrap = "word", bg_color = "#DD3E3E", fg_color = "#EFEFEF", text_color = "#17139C")
+    box_content = ctk.CTkTextbox(box_title_content_division, height = 52, width = 400, wrap = "word", bg_color = "#DD3E3E", fg_color = "#EFEFEF", text_color = "#17139C")
     box_content.insert("0.0", content)
     box_content.pack(side = "top", anchor = "w")
 
